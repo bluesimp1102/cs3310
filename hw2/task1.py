@@ -1,33 +1,43 @@
-def maxProfit(S):
+from typing import List
+def find_max_profit(S: List[int]):
     n = len(S)
+    
     if n < 2:
+        # There is only one price or no price at all
         return 0, None, None
     
-    left = 0
-    right = n - 1
-    mid = (left + right) // 2
-
     # Divide
-    left_max_profit, left_start, left_end = maxProfit(S[:mid + 1])
-    right_max_profit, right_start, right_end = maxProfit(S[mid + 1:])
+    mid = n // 2
+    left_max_profit, left_buy_day, left_sell_day = find_max_profit(S[:mid])
+    right_max_profit, right_buy_day, right_sell_day = find_max_profit(S[mid:])
 
-    # Conquer
-    # Max profit in left half, right half, or spanning both halves
-    max_profit = max(left_max_profit, right_max_profit, S[right] - S[left])
+    # Find the minimum and maximum price in the left half and right half
+    left_min_price = min(S[:mid])
+    right_max_price = max(S[mid:])
+
+    # Combine
+    # The maximum profit is the maximum of the left, right, or combined maximum profit
+    max_profit = max(left_max_profit, right_max_profit, right_max_price - left_min_price)
 
     if max_profit == left_max_profit:
-        return left_max_profit, left_start, left_end
+        # The maximum profit is in the left half
+        return left_max_profit, left_buy_day, left_sell_day
     elif max_profit == right_max_profit:
-        return right_max_profit, right_start + mid + 1, right_end + mid + 1
+        # The maximum profit is in the right half
+        return right_max_profit, right_buy_day + mid, right_sell_day + mid
     else:
-        return max_profit, left, right
+        # The maximum profit spans the two halves
+        buy_day = S.index(left_min_price, 0, mid)
+        sell_day = S.index(right_max_price, mid)
+        return max_profit, buy_day, sell_day
+
 
 def main():
     # Ask the user for the input array
     S = list(map(int, input("Enter the stock prices separated by spaces: ").split()))
     
     # Call the maxProfit function to find the best time to buy and sell
-    max_profit, buy_day, sell_day = maxProfit(S)
+    max_profit, buy_day, sell_day = find_max_profit(S)
     
     # Print the result
     print(f"The best time to buy is day {buy_day+1} and the best time to sell is day {sell_day+1}.")

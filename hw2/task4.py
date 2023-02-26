@@ -43,7 +43,7 @@ def main():
         [6, 7, 8],
         [9, 10, 123]
     ]
-    target=11
+    target=10
     start_time = time.time()
     i, j = search_in_sorted_array(arr, target)
     end_time = time.time()

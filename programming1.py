@@ -1,5 +1,4 @@
-import time
-
+# Algorithm #1
 def maxSubSum1(a):
     max_sum = -float('inf')
     start_index, end_index = -1, -1
@@ -13,6 +12,7 @@ def maxSubSum1(a):
                 start_index, end_index = i, j
     return max_sum, start_index, end_index
 
+# Algorithm #2
 def maxSubSum2(a):
     max_sum = -float('inf')
     start_index, end_index = -1, -1
@@ -25,6 +25,7 @@ def maxSubSum2(a):
                 start_index, end_index = i, j
     return max_sum, start_index, end_index
 
+# Algorithm #3
 def maxSumRec(a, left, right):
     if left == right:
         # Base case
@@ -55,6 +56,7 @@ def maxSumRec(a, left, right):
     else:
         return (maxBorderSum, maxLeftBorderStart, maxRightBorderEnd)
 
+# Algorithm #4
 def maxSubSumDP(a):
     n = len(a)
     max_sum = a[0]
@@ -80,7 +82,10 @@ def maxSubSumDP(a):
 import time
 
 def main():
-    a = list(map(int, input("Enter a list of integers: ").split()))
+    # ask the user to input a list of integers
+    # assuming that the user's input will always valid (a list of integers)
+    # convert the input of the user to a list
+    a = list(map(int, input("Enter a list of integers: ").strip().split()))
 
     # Algorithm 1
     start_time = time.time()
