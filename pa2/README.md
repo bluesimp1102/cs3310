@@ -5,33 +5,40 @@
 ##### Algorithm #1
 ```
 Procedure1 SELECT(k, S) { 
-    if size(S)==1 then return the single element in S
+    if size(S)==1 then 
+        return the single element in S;
     else  { 
         choose an element a randomly from S;
-        let S1,S2,and S3 be he sequences of elements in S less than, equal to, and greater than m, respectively;
-        if IS1I >=k then return SELECT(k,S1)
-        else if IS1I + IS2I >=k then return m
-        else  return SELECT(k-IS1I-IS2I , S3);
+        let S1, S2, and S3 be the sequences of elements in S less than, equal to, and greater than m, respectively;
+        if size(S1) >=k then 
+            return SELECT(k,S1)
+        else if size(S1) + size(S2) >=k then 
+            return m
+        else 
+            return SELECT(k-size(S1)-size(S2) , S3);
     }
 } 
 ```
 This algorithm has worse case complexity Θ(n^2) and average complexity Θ(n).
 ##### Algorithm #2
 ```
-Procedure 2 SELECT(k,S) {
+Procedure 2 SELECT(k, S) {
     if ISI < 50 then { 
         sort S; 
         return the kth smallest element;
     }
     else { 
-        divide S into ISI/5 sequences of 5 elements each with up to four leftover elements;
+        divide S into size(S)/5 sequences of 5 elements each with up to four leftover elements;
         sort each 5-element sequence;
         let M be the sequence of the medians of the 5-element sets;
-        let m= SELECT(│M│/2, M); 
-        let S1, S2,  and  S3 be he sequences of elements in S less than, equal to, and greater than m, respectively;
-        if IS1I >=k then return SELECT(k,S1)
-        else if (IS1I + IS2I >= k) then return m
-        else  return SELECT(k-IS1I-IS2I , S3); 
+        let m = SELECT(size(M)/2, M); 
+        let S1, S2, and S3 be the sequences of elements in S less than, equal to, and greater than m, respectively;
+        if size(S1) >=k then 
+            return SELECT(k, S1);
+        else if (size(S1) + size(S2) >= k) then 
+            return m;
+        else  
+            return SELECT(k-size(S1)-size(S2), S3); 
     }
 }
 ```
