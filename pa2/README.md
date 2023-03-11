@@ -1,7 +1,8 @@
 ## CS3310 Design and Analysis of Algorithms (Cal Poly Pomona)             
 
 ### Finding the kth smallest integer in a set of integers
-#### Algorithm #1
+#### Pseudocode
+##### Algorithm #1
 ```
 Procedure1 SELECT(k, S) { 
     if size(S)==1 then return the single element in S
@@ -15,7 +16,7 @@ Procedure1 SELECT(k, S) {
 } 
 ```
 This algorithm has worse case complexity Θ(n^2) and average complexity Θ(n).
-#### Algorithm #2
+##### Algorithm #2
 ```
 Procedure 2 SELECT(k,S) {
     if ISI < 50 then { 
