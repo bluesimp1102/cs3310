@@ -3,7 +3,7 @@
 ## READ ME!
 This repository contains my implementations of the course's various algorithms and data structures. I'm sharing this code to provide a resource for others to roast, look at, comment on, and share their thoughts on. I have no intention of using this code to break any academic rules or to promote any form of cheating.
 
-## CPP CS3310 - Course Description:
+## CS Course - Design and Analysis of Algorithms:
 The course covers algorithms for fundamental problems, such as efficiency analysis using asymptotic notation, primary algorithm design techniques and their tradeoffs, NP-theory, and approaches to dealing with intractability. Students should be able to analyze the time and space complexity of algorithms using O, Ω, and Θ notation, use different algorithms for a given problem, design algorithms using divide and conquer, dynamic programming, and greedy methods, understand selected graph algorithms, and use branch and bound and backtracking methods for problem-solving by the end of the course.
 
 ## What you can find here?
