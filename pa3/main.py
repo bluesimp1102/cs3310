@@ -52,13 +52,19 @@ def max_value_path(board):
 
     return dp[-1][-1], path
 
+# print the board to make it easier to look at
+def print_board(board):
+    for row in board:
+        for value in row:
+            print(f"{value:5}", end="")
+        print()
+        # print()
+
 def main():
     n, m = 5, 5
     board = generate_board(n, m)
     print("Board:")
-    for row in board:
-        print(row)
-
+    print_board(board)
     max_value, path = max_value_path(board)
     print("Max value:", max_value)
     print("Path:", path)
